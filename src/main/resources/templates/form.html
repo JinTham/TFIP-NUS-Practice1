@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <h1>Register form</h1>
+    <div>
+        <form method="post" data-th-action="@{/contact}">
+            <div>
+                <label for="name">Name: </label>
+                <input type="text">
+                <span></span>
+            </div>
+            <div>
+                <label for="email">Email: </label>
+                <input type="email">
+                <span></span>
+            </div>
+            <div>
+                <label for="phone">Phone Number: </label>
+                <input type="number">
+                <span></span>
+            </div>
+            <div>
+                <label for="dOB">Date of Birth: </label>
+                <input type="date">
+                <span></span>
+            </div>
+            <button class="btn waves-effect waves-light" name="action" type="submit">Submit</button>    
+        </form>
+    </div>
+    
+</body>
+</html>
