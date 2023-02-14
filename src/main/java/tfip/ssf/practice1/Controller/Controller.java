@@ -45,7 +45,7 @@ public class Controller {
 
     //Add a viewing path, to search the contact details by giving contactID in the path 
     @GetMapping(path="/contact/{contactID}")
-    public String getContactDetails(@PathVariable(value="contactID") Model model, String contactID){
+    public String getContactDetails(@PathVariable(value="contactID") Model model, String contactID) throws ClassNotFoundException, IOException{
         Contact contact = contactService.findContactByID(contactID);
         if (contact.getName()==null){
             return "error.html";
@@ -56,7 +56,7 @@ public class Controller {
 
     //Add a page to show a list of all existing contacts in the database (accepts a variable to determine the number of contacts listed)
     @GetMapping(path="/contact")
-    public String listContacts(@RequestParam(name="startIndex") Integer startIndex, Model model){
+    public String listContacts(@RequestParam(name="startIndex") Integer startIndex, Model model) throws ClassNotFoundException, IOException{
         List<Contact> contactList = contactService.listContact();
         model.addAttribute("contactList", contactList);
         return "contactList.html";

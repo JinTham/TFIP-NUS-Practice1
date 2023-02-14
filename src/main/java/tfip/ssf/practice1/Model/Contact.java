@@ -1,5 +1,6 @@
 package tfip.ssf.practice1.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Random;
@@ -14,7 +15,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
-public class Contact {
+public class Contact implements Serializable{
     @NotNull(message = "Mandatory field")
     @Size(min=3,max=64,message = "Must be between 3 and 64 characters")
     private String name;
@@ -58,6 +59,12 @@ public class Contact {
             sb.append(Integer.toHexString(rand.nextInt(17)));
         }
         return sb.toString();
+    }
+    //To String
+    @Override
+    public String toString() {
+        return "Contact [name=" + name + ", email=" + email + ", phone=" + phone + ", dOB=" + dOB + ", age=" + age
+                + ", contactID=" + contactID + "]";
     }
     //Getters & Setters
     public String getName() {

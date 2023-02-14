@@ -19,13 +19,16 @@ public class ContactService {
         contactRepo.saveToLocalFile(contact);
     }
 
-    public List<Contact> listContact(){
+    public List<Contact> listContact() throws ClassNotFoundException, IOException{
         return contactRepo.listAllContact();
     }
 
-    public Contact findContactByID(String contactID){
-        //if contactID not exist,
-        return new Contact();
-        //else do as usual
+    public Contact findContactByID(String contactID) throws ClassNotFoundException, IOException{
+        Contact contact = contactRepo.listAllContact().stream().filter(e -> e.getContactID().equals(contactID)).findFirst().get();
+        if (contact!=null){
+            return contact;
+        } else {
+            return new Contact();
+        }
     }
 }
